@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <!-- First form container -->
+   <div class="container1">
+    <form action="/api/admission/submit" method="POST">
+    <div class="photo-box">
+        <p>Passport Size Photo</p>
+        <!-- Input field for uploading photo -->
+        <input type="file" accept="image/*" capture="camera" id="photo-input">
+        <!-- Placeholder for selected photo -->
+        <img id="selected-photo" src="" alt="Selected Photo">
+    </div>
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+        <div class="college-info1">
+            <h2>Mittal Group of Institutes</h2>
+            <p>Opp. Bhopal Memorial Hospital, By-pass Road, Navibagh, Bhopal-38</p>
+            <p class="underline">Provisional Admission</p> <!-- Underline -->
+        </div>
+    </div>
+    <div class="additional-text">
+        <h3>FORM&nbsp;NO.:&nbsp;MGIIAD&nbsp;CELL/F/5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REV.NO.:03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REV.DATE:</h3>
+    </div>
+    <div class="additional-text">
+        <p>Sr. No: <input type="text" id="sr-no" name="sr-no"> &nbsp;&nbsp;File No: <input type="text" id="file-no" name="file-no"> &nbsp;&nbsp;Date: <input type="text" id="date" name="date" class="year-input"></p>
+    </div>
+    <div class="additional-text">
+        <p>I wish to register myself, for admission in your prestigious institute for the session 20: <input type="text" id="year1" name="year1" class="year-input"> &nbsp;&nbsp;20: <input type="text" id="year2" name="year2" class="year-input"></p>
+    </div>
+    <div class="additional-text">
+        <p>My particulars are as under.</p>
+    </div>
+    
+        <div class="form-group">
+            <label for="full-name">Name:</label>
+            <input type="text" id="full-name" name="full-name" required>
+        </div>
+        <!-- Rest of your form content... -->
+        <div class="form-group">
+            <label for="contact-no">Contact No.:</label>
+            <input type="text" id="contact-no" name="contact-no" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category (General/OBC/SC/ST-TFW):</label>
+            <input type="text" id="category" name="category" required>
+        </div>
+        <div class="form-group">
+            <label for="father-name">Father's Name:</label>
+            <input type="text" id="father-name" name="father-name" required>
+        </div>
+        <div class="form-group">
+            <label for="mother-name">Mother's Name:</label>
+            <input type="text" id="mother-name" name="mother-name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" >
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+    
+        <div class="form-group">
+            <label for="percentage" class="percentage-label">Exam passed : </label>
+            <span>10th&nbsp;</span><input type="text" id="10th-percent" name="10th-percent" class="percentage-input" required>
+            <span>% of marks</span>
+            <label for="percentage" class="percentage-label">&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12th</label>
+            <input type="text" id="12th-percent" name="12th-percent" class="percentage-input" >
+            <span>% of marks</span>
+        </div>
+        <div class="form-group">
+            <label for="percentage" class="percentage-label"> </label>
+            <span>PCM&nbsp;</span><input type="text" id="pcm-percent" name="pcm-percent" class="percentage-input">
+            <span>% of marks</span>
+            <label for="percentage" class="percentage-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PCB</label>
+            <input type="text" id="pcb-percent" name="pcb-percent" class="percentage-input" >
+            <span>% of marks</span>
+        </div>
+        <div class="form-group">
+            <label for="percentage" class="percentage-label"> </label>
+            <span>Graduation&nbsp;</span><input type="text" id="grad-percent" name="grad-percent" class="percentage-input" >
+            <span>% of marks</span>
+            <label for="percentage" class="percentage-label">&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diploma</label>
+            <input type="text" id="diploma-percent" name="diploma-percent" class="percentage-input" >
+            <span>% of marks</span>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" >
+            <label for="pin" style="margin-left: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pin:</label>
+            <input type="text" id="pin" name="pin" >
+        </div>
+        <div class="form-group">
+            <label for="course-register">Course for register:</label>
+            <input type="text" id="course-register" name="course-register" onclick="toggleCourseList()" >
+            <!-- Course list dropdown -->
+            <div class="course-list" id="course-list">
+                <ul>
+                    <li onclick="selectCourse('B.Tech. (ME/EC/CIVIL/EE/CSE)')">B.Tech. (ME/EC/CIVIL/EE/CSE)</li>
+                    <li onclick="selectCourse('DME')">DME</li>
+                    <li onclick="selectCourse('M.TECH (DC,CSE,PE & CIM)')">M.TECH (DC,CSE,PE & CIM)</li>
+                    <li onclick="selectCourse('MBA')">MBA</li>
+                    <li onclick="selectCourse('ITI (Electrician/Fitter)')">ITI (Electrician/Fitter)</li>
+                    <li onclick="selectCourse('B.Ph')">B.Ph</li>
+                    <li onclick="selectCourse('D.Ph')">D.Ph</li>
+                    <li onclick="selectCourse('M.Ph')">M.Ph</li>
+                    <li onclick="selectCourse('B.Ed')">B.Ed</li>
+                    <li onclick="selectCourse('M.Ed')">M.Ed</li>
+                    <li onclick="selectCourse('BCA')">BCA</li>
+                    <li onclick="selectCourse('BBA')">BBA</li>
+                    <li onclick="selectCourse('B.com(Computer/Texatlon/Plain)')">B.com(Computer/Texatlon/Plain)</li>
+                    <li onclick="selectCourse('B.Sc. (CN/PCM/Com+Maths+Phy/Biotech+Bot+Zoo/Biotech+Com+Zoo/Bot+Chem+Zoo)')">B.Sc. (CN/PCM/Com+Maths+Phy/Biotech+Bot+Zoo/Biotech+Com+Zoo/Bot+Chem+Zoo)</li>
+                    <li onclick="selectCourse('PG Diploma in Dietics')">PG Diploma in Dietics</li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 5px;">
+            <p style="font-size: 13.5px; color: #0a0a0a;">I have fully understood that admission will be based only as per the rules and regulations of affiliations university (RGPV/BU) and state Govt. of Madhya Pradesh. I will withdraw my registration if rules do not permit.</p>
+        </div>
+        <div class="form-group">
+            <p style="font-size: 13.5px; color: #0a0a0a;">I deposit the following documents & amount RS. <input type="text" id="amount" name="amount"> (in words <input type="text" id="amount-words" name="amount-words">&nbsp;) towards registration fee.</p>
+        </div>
+        
+            <div class="form-group">
+                <label>Documents submitted:</label>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <div style="flex: 1; margin-right: 10px;">
+                        1. <input type="text" id="doc1" name="doc1">
+                    </div>
+                    <div style="flex: 1; margin-right: 10px;">
+                        2. <input type="text" id="doc2" name="doc2">
+                    </div>
+                    <div style="flex: 1;">
+                        3. <input type="text" id="doc3" name="doc3">
+                    </div>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; margin-top: 10px;">
+                    <div style="flex: 1; margin-right: 10px;">
+                        4. <input type="text" id="doc4" name="doc4">
+                    </div>
+                    <div style="flex: 1; margin-right: 10px;">
+                        5. <input type="text" id="doc5" name="doc5">
+                    </div>
+                    <div style="flex: 1;">
+                        6. <input type="text" id="doc6" name="doc6">
+                    </div>
+                </div>
+            </div>
+            <!-- Other form groups -->
+        
+        <div class="additional-text" style="margin-top: 20px; font-size: 13.5px;">
+            <p style="font-weight: bold;"></p>
+            <div style="font-weight: bold; color: black;">
+                <p><strong>Note:</strong> *Uniform must be taken from the institute *Own purchases will not be considered *Deposit fee will not be refundable.</p>
+
+            </div>
+        </div>
+        <div class="additional-text" style="margin-top: 20px; font-size: 13.5px; display: flex; justify-content: space-between;">
+            <p style="font-weight: bold;">Sign. of Candidate</p>
+            <p style="font-weight: bold; color: black;">[Sign. of Parents / Guardian / Introducer]</p>
+        </div>
+    </div>   
+ <!-- Submit button -->
+ <button type="submit">Submit</button>
+</form>
+</div>
+ <!-- Second form container -->
+    <div class="container2">
+        <div class="form-info3">
+            <p>FORM NO: MGI/AD CELL/F/6</p>
+        </div>
+        <div class="photo-box3">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Photo</p>
+        
+        </div>
+        <div class="logo3">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="college-info3">
+            <h2>Mittal Group of Institutes</h2>
+            <p>Opp. Bhopal Memorial Hospital, By-pass Road, Navibagh, Bhopal-38</p>
+            <p class="underline">Record of student profile</p>
+        </div>
+        <div class="tables3">
+             <!-- First Table -->
+             <table>
+                <tr>
+                    <th>QUALIFICATION</th>
+                    <th>ELIGIBILITY</th>
+                    <th>STATUS</th>
+                </tr>
+                <tr>
+                    <td>10th%</td>
+                    <td>(35% for DME & D.Ph ad.)</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12th%</td>
+                    <td>(Gen 45% and OBC/SC/ST 40% for BE & B.Ph ad.)</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCM%</td>
+                    <td>(45% for B.E ad. For Gen and OBC/SC/ST 40%)</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>PCB%</td>
+                    <td>(45% for B.ph ad., For Gen and OBC/SC/ST 40%, Open School &Sanskrit Board Students not eligible)</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>M.Tech</td>
+                    <td>(Check the Eligibility for M.Tech Branch with B.E)</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MBA</td>
+                    <td>(50% and above)</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>All COURSES</td>
+                    <td>(STUDENTS ELIGIBLE FOR SCHOLARSHIP)</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>REMARK</td>
+                    <td>(IF REQUIRED CHECK THE ADMISSION RULE BOOK)</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+             <!-- Second Table -->
+             <table>
+                <tr>
+                    <th>S.No.</th>
+                    <td><input type="text"></td>
+                    <th>File No.</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td><input type="date"></td>
+                    <th>Form No.</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td><input type="date"></td>
+                    <th>Blood group</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <th>Student Name</th>
+                    <td><input type="text"></td>
+                    <th>Contact No.</th>
+                    <td colspan="1"><input type="tel"></td>
+                </tr>
+                <tr>
+                    <th>Father Name</th>
+                    <td><input type="text"></td>
+                    <th>Contact No.</th>
+                    <td colspan="1"><input type="tel"></td>
+                </tr>
+                <tr>
+                    <th>Mother Name</th>
+                    <td><input type="text"></td>
+                    <th>Contact No.</th>
+                    <td colspan="1"><input type="tel"></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td><input type="text"></td>
+                    <th>Pin</th>
+                    <td colspan="1"><input type="tel"></td>
+                </tr>
+                <tr>
+                    <th>District</th>
+                    <td><input type="text"></td>
+                    <th>State</th>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="additional-text3" style="font-weight: bold;">
+            <p>Original Documents Submitted :</p>
+        </div>
+        <!-- Third Table -->
+        <div class="tables3">
+            <table class="third-table3" style="width: 100%;">
+                <tr>
+                    <td>10th</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>Caste certificate</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>Domecile</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>TC</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12th</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>Income certificate</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>Gap certificate</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>Migration</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Graduation m/sheet</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>JEE Main score card</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>5 Photos</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                    <td>Address proof</td>
+                    <td>
+                        <select>
+                            <option value="yes">YES</option>
+                            <option value="no">NO</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="tables3">
+            <table class="fourth-table3" style="width: 100%;">
+                <tr>
+                    <td>Marks</td>
+                    <td>10th</td>
+                    <td>12th</td>
+                    <td>JEE Main</td>
+                    <td>Graduation</td>
+                    <td>Diploma</td>
+                </tr>
+                <th>Max.Marks</th>
+                <td colspan="1"><input type="tel"></td>
+                <td colspan="1"><input type="tel"></td>
+                <td colspan="1"><input type="tel"></td>
+                <td colspan="1"><input type="tel"></td>
+                <td colspan="1"><input type="tel"></td>
+                </tr>
+                <th>Marks Obtained</th>
+                <td colspan="1"><input type="tel"></td>
+                <td colspan="1"><input type="tel"></td>
+                <td colspan="1"><input type="tel"></td>
+                <td colspan="1"><input type="tel"></td>
+                <td colspan="1"><input type="tel"></td>
+                </tr>
+            </tr>
+            <th>%</th>
+            <td colspan="1"><input type="tel"></td>
+            <td colspan="1"><input type="tel"></td>
+            <td colspan="1"><input type="tel"></td>
+            <td colspan="1"><input type="tel"></td>
+            <td colspan="1"><input type="tel"></td>
+            </tr>
+        </tr>
+        <th>Roll No.</th>
+        <td colspan="1"><input type="tel"></td>
+        <td colspan="1"><input type="tel"></td>
+        <td colspan="1"><input type="tel"></td>
+        <td colspan="1"><input type="tel"></td>
+        <td colspan="1"><input type="tel"></td>
+        </tr>
+            </table>
+        </div>
+    </div>
+      <!-- third form container -->
+    <div class="container4_custom">
+        <div class="form-info4_custom">
+            <p>FORM NO: MGI/AD CELL/F/6</p>
+        </div>
+        <div class="logo4_custom">
+            <img src="logo.png" alt="Logo">
+        </div>
+        <div class="college-info4_custom">
+            <h2>Mittal Group of Institutes</h2>
+            <p>Opp. Bhopal Memorial Hospital, By-pass Road, Navibagh, Bhopal-38</p>
+            <p class="underline_custom">Record of student profile</p>
+        </div>
+        <div class="tables4_custom">
+            <table class="first-table4_custom">
+                <tr>
+                    <td>Course year</td>
+                    <td>FEE</td>
+                    <td>Dev Charges</td>
+                    <td>Library Facility</td>
+                    <td>Uniform FEE</td>
+                    <td>Hostel FEE</td>
+                    <td>Bus FEE</td>
+                    <td>NO</td>
+                    <td>Total AMT. Per Year</td>
+                    <td>AMT.For Course Duration</td>
+                </tr>
+                <tr>
+                    <th>1ST YEAR</th>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td rowspan="4"><input type="tel"></td>
+                </tr>
+                <tr>
+                    <th>2ST YEAR</th>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                </tr>
+                <tr>
+                    <th>3ST YEAR</th>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                </tr>
+                <tr>
+                    <th>4ST YEAR</th>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tables4_custom">
+            <table class="second-table4_custom">
+      <tr>
+                    <td>Course Year</td>
+                    <td>Cash</td>
+                    <td>CHQ./Online</td>
+                    <td>Receipt No. with Date</td>
+                    <td>Remaining FEE</td>
+                </tr>
+                <tr>
+                    <th>1ST YEAR</th>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                </tr>
+          </table>
+        </div>
+        <div class="additional-text4_custom" style="font-weight: bold;">
+            <p>Students Information :</p>
+        </div>
+        <div class="points-box4_custom">
+            <p>1. Responsibility of incomplete documents for scholarship lies with students instead of institute.</p>
+            <p>2. FEE decided at the time of admission is final and not be changed in future.</p>
+            <p>3. Students are advised to take receipt of any type of amount paid to the institute.</p>
+            <p>4. Course FEE decided in the admission format will be final, verbal or written commitment by any faculty or staff in any other slip or paper will not be considered.</p>
+            <p>5. Hostel Fees, Bus fees and any other commitment (Like Bus route..etc) Decided in admission format will be final. Verbal commitment will not be considered. FEE deposited by students will not be refundable.</p>
+            <p>6. FEE Deposited by students will not be refundable.</p>
+    
+        </div>
+        <div class="tables4_custom">
+            <table class="third-table4_custom" style="width: 100%; margin-top: -10px;">
+                <tr>
+                    <td>Stu.Sign&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>Parents/Guardian(Name&Sign)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>Introducer(Name&Sign)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>Sign.Authority&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;&nbsp;</td>
+    
+                </tr>
+            </table>
+        </div>
+        <div style="margin-top: 4px;">
+            <label for="remark">Remark:</label>
+            <input type="text" id="remark" name="remark" style="width: 80%;">
+        </div>
+        <div style="margin-top: 7px; border: 1px solid #ccc; padding: 3px; font-size: 11px;">
+            Note: Income certificate for SC&ST students should be below Rs.1,70,000/- and for OBC students below Rs.75000/-. If Govt. employee with higher income please discuss the matter with higher authority.
+        </div>
+    </div>
+    <!-- fourth form container -->
+    <div class="container_customsecond">
+        <div class="form-info_customsecond">
+            <p>FORM NO: MGI/AD CELL/F/6</p>
+        </div>
+        <div class="logo_customsecond">
+            <img src="logo.png" alt="Logo">
+        </div>
+    
+        <div class="college-info_customsecond">
+            <h2>Mittal Group of Institutes</h2>
+            <p>Opp. Bhopal Memorial Hospital, By-pass Road, Navibagh, Bhopal-38</p>
+            <p class="underline_customsecond">Record of Introducer profile</p>
+        </div>
+        <div class="tables_customsecond">
+            <table class="first-table_customsecond" >
+                <tr>
+                    <td>S.NO.</td>
+                    <td>File No.</td>
+                    <td>Branch</td>
+                    <td>Name Of Student</td>
+                    <td>Date of Admission</td>
+                </tr>
+                <tr>
+                    <td><input type="tel"></td>
+                    <td><input type="tel"></td>
+                    <td><input type="text"></td>
+                    <td><input type="text"rowspan="3" style="width: 80%;"></td>
+                    <td><input type="date"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="additional-text_customsecond" style="font-weight: bold;">
+            <p>Balance Amount Introducer Slip issued on : </p>
+        </div>
+        <div class="tables_customsecond">
+            <table class="second-table_customsecond">
+                <tr>
+                    <td>Introducer(s) Name</td>
+                    <td><input type="text"></td>
+                    <td rowspan="3" style="width: 30%; height: 150px;">Copy ID&Address Proof</td> <!-- Set the height here -->
+                </tr>
+                <tr>
+                    <td>Contact(s) No.</td>
+                    <td><input type="tel"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="tables_customsecond">
+            <table class="third-table_customsecond">
+                <tr>
+                    <td>Introducer Payment Commitment (Payable Amount)</td>
+                    <td>Paid Amount</td>
+                    <td>Balance Amount</td>
+                    <td>Involved Faculty Name & Signature</td>
+                    <td>Accounts Dept.Signature</td>
+                    <td>Admission Authority Signature</td>
+                    <td>Dean Signature</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">Total Amount :</td> <!-- Span the cell vertically -->
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="adjustment">Adjustment:</label>
+            <input type="text" id="adjustment" name="adjustment" style="width: 80%;">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="remark">Remark:</label>
+            <input type="text" id="remark" name="remark" style="width: 80%;">
+        </div>
+    </div>
+   <!-- fifth form container -->
+   <script src="scripts.js"></script>
+</body>
+</html>
