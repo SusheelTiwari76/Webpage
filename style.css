@@ -1,0 +1,549 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* First form container */
+.container1{
+    width: 210mm; /* Width for A4 paper */
+    height: 297mm; /* Height for A4 paper */
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Add position relative */
+    box-sizing: border-box; /* Ensure padding and border included in width and height */
+    margin-bottom: 400px;
+}
+
+/* Second form container */
+.container2{
+     width: 290mm; /* Increase width for A4 size */
+     height: 160mm; /* Decrease height for A4 size */
+     margin: auto;
+     background-color: #fff;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     position: relative; /* Add position relative */
+     box-sizing: border-box; /* Ensure padding and border included in width and height */
+     margin-bottom: 200px;
+    }
+    .container4_custom {
+    width: 290mm; /* Increase width for A4 size */
+    height: 160mm; /* Decrease height for A4 size */
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Add position relative */
+    box-sizing: border-box; /* Ensure padding and border included in width and height */
+    margin-bottom: 400px;
+}
+.container_customsecond {
+    width: 290mm; /* Increase width for A4 size */
+    height: 160mm; /* Decrease height for A4 size */
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Add position relative */
+    box-sizing: border-box; /* Ensure padding and border included in width and height */
+    margin-bottom: 400px;
+}
+
+/* Rest of your CSS styles... */
+p {
+    margin: 0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #333;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align logo to the left */
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.college-info1 {
+
+    text-align: left; /* Align college info text to left */
+    margin-left: 10px; /* Adjust margin for college info */
+}
+
+.college-info1 h2 {
+   
+    font-size: 28px; /* Increased font size for college name */
+    margin-bottom: 5px; /* Reduced margin between college name and address */
+}
+
+.college-info1 p {
+    
+    margin: 0; /* Reset margin for paragraphs */
+    text-align: center; /* Center align the text */
+}
+
+.form-group {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.form-group label {
+    flex: 0 0 auto; /* Allow the label to shrink as needed */
+    width: 200px; /* Set a fixed width for the label */
+    font-weight: bold;
+    font-size: 14px; /* Adjust font size */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    flex: 1; /* Take up remaining space */
+    padding: 5px; /* Adjust padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px; /* Adjust font size */
+}
+
+.form-group textarea {
+    height: 80px; /* Adjust height */
+}
+
+.form-group input#address {
+    width: calc(100% - 360px); /* Adjust the fixed width based on the label width and pin input width */
+}
+
+.form-group input#pin {
+    width: 120px; /* Increase the width of the Pin field */
+}
+
+.form-group button {
+    padding: 8px 16px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+}
+
+.underline {
+    text-decoration: underline; /* Add underline */
+}
+
+.photo-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 130px;
+    height: 130px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-top: 50px;
+    margin-right: 15px;
+}
+
+.photo-box p {
+    margin: 0;
+}
+
+.photo-box img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+}
+#selected-photo {
+position: absolute; /* Change position to absolute */
+/* Adjust top, right, bottom, and left properties as needed */
+top: 50%; /* Move the photo to the middle vertically */
+left: 50%; /* Move the photo to the middle horizontally */
+transform: translate(-50%, -50%); /* Center the photo precisely */
+}
+
+.additional-text {
+    text-align: left;
+    margin-left: 0px;
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.year-input {
+    width: 60px;
+    font-size: 10px;
+}
+
+/* Adjust the width for the percentage fields */
+.percentage-input {
+    width: 30px;
+}
+
+/* Keep all percentage fields in one line */
+.percentage-label {
+    margin-right: 5px;
+}
+
+/* Course list dropdown */
+.course-list {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.course-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.course-list li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.course-list li:hover {
+    background-color: #f4f4f4;
+}
+/* Add CSS styles specific to the second form */
+/* .container2 .logo { Your CSS styles for the second form's logo } */
+ /* Rest of your CSS styles... */
+ p {
+    margin: 0;
+ }
+
+ h1, h2, h3 {
+     text-align: center;
+     color: #333;
+ }
+
+ .logo3 {
+     display: flex;
+     align-items: center;
+     /* Align logo to the center */
+     margin-bottom: 20px;
+ }
+
+ .logo3 img {
+     width: 100px;
+     height: auto;
+     margin-right: 10px;
+ }
+
+ .college-info3 {
+     text-align: center; /* Align college info text to center */
+     margin-left: 10px; /* Adjust margin for college info */
+     margin-top: -60px; /* Reduce margin from the top */
+ }
+
+ .college-info3 h2 {
+     margin-top: 10px;
+     font-size: 28px; /* Increased font size for college name */
+     margin-bottom: 5px; /* Reduced margin between college name and address */
+ }
+
+ .additional-text3 {
+     text-align: left;
+     margin-left: 0px;
+     margin-top: 20px;
+     font-family: sans-serif;
+     font-size: 14px;
+ }
+
+ .form-info3 {
+     font-size: 14px; 
+     margin-top: 70px;
+     position: absolute;
+     left: 20px; /* Adjust left position */
+     top: 20px; /* Adjust top position */
+ }
+
+ .underline3 {
+     text-decoration: underline;
+ }
+
+ .tables3 {
+     margin-top: 3px;
+     display: flex;
+     justify-content: space-between;
+     width: 100%; /* Full width */
+ }
+/* Reduce space between third and fourth table */
+.fourth-table3 {
+margin-top: 13px; /* Adjust the value as needed */
+}
+.third-table3 {
+margin-top: 5px; /* Adjust the value as needed */
+}
+
+ table {
+     width: 48%; /* Adjusted width for two tables with a gap */
+     border-collapse: collapse;
+     margin-top: 30px;
+ }
+ .additional-text3 {
+    
+   
+    margin-top: 8px;
+    
+}
+
+
+ th, td {
+     border: 1px solid #0e0d0d;
+     padding: 2px;
+     text-align: center;
+     font-size: 12px;
+ }
+
+ th {
+     background-color: #f7f7f7;
+ }
+ .photo-box3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 115px;
+    height: 110px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.photo-box3 p {
+    margin: 0;
+}
+/*third form style*/
+P{
+
+margin: 0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #333;
+}
+
+.logo4_custom {
+    display: flex;
+    align-items: center;
+    /* Align logo to the center */
+    margin-bottom: 20px;
+}
+
+.logo4_custom img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.college-info4_custom {
+    text-align: center; /* Align college info text to center */
+    margin-left: 10px; /* Adjust margin for college info */
+    margin-top: -60px; /* Reduce margin from the top */
+}
+
+.college-info4_custom h2 {
+    margin-top: 10px;
+    font-size: 28px; /* Increased font size for college name */
+    margin-bottom: 5px; /* Reduced margin between college name and address */
+}
+
+.form-info4_custom {
+    font-size: 8px;
+    margin-top: 70px;
+    position: absolute;
+    left: 20px; /* Adjust left position */
+    top: 20px; /* Adjust top position */
+}
+
+.underline_custom {
+    text-decoration: underline;
+}
+
+.tables4_custom {
+    margin-top: 12px;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container4_custom table {
+    width: 80%; /* Adjust table width */
+    border-collapse: collapse;
+}
+
+.container4_custom th,
+.container4_custom td {
+    border: 1px solid #0e0d0d;
+    padding: 5px; /* Adjust padding */
+    text-align: center;
+    width: 10%; /* Adjust column width */
+}
+
+.container4_custom th {
+    background-color: #f7f7f7;
+}
+
+.container4_custom input[type="tel"] {
+    width: 60px; /* Adjust input field width */
+}
+
+.second-table4_custom input[type="tel"] {
+    width: 150px; /* Adjust the width as needed */
+}
+
+.points-box4_custom {
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px; /* Adjust padding */
+    margin-top: 5px;
+    font-size: 11px; /* Adjust font size */
+}
+
+.points-box4_custom p {
+    margin: 2px 0; /* Adjust margin */
+}
+
+.additional-text4_custom {
+    margin-top: 8px;
+}
+.first-table4_custom{
+    margin-top: 3px;
+
+}
+.second-table4_custom{
+    margin-top: 3px;
+
+}
+
+/* Fourth page css*/
+
+ /* Rest of your CSS styles... */
+ p {
+    margin: 0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #333;
+}
+
+.logo_customsecond {
+    display: flex;
+    align-items: center;
+    /* Align logo to the center */
+    margin-bottom: 20px;
+}
+
+.logo_customsecond img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.college-info_customsecond {
+    text-align: center; /* Align college info text to center */
+    margin-left: 10px; /* Adjust margin for college info */
+    margin-top: -60px; /* Reduce margin from the top */
+}
+
+.college-info_customsecond h2 {
+    margin-top: 10px;
+    font-size: 28px; /* Increased font size for college name */
+    margin-bottom: 5px; /* Reduced margin between college name and address */
+}
+
+.form-info_customsecond {
+    font-size: 8px;
+    margin-top: 70px;
+    position: absolute;
+    left: 20px; /* Adjust left position */
+    top: 20px; /* Adjust top position */
+}
+
+.underline_customsecond {
+    text-decoration: underline;
+}
+
+.tables_customsecond {
+    margin-top: 20px;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container_customsecond table {
+    width: 100%; /* Adjust table width */
+    border-collapse: collapse;
+}
+
+.container_customsecond th,
+.container_customsecond td {
+    border: 1px solid #0e0d0d;
+    padding: 3px; /* Adjust padding */
+    text-align: center;
+}
+
+.container_customsecond th {
+    background-color: #f7f7f7;
+}
+
+.container_customsecond input[type="tel"],
+.container_customsecond input[type="text"],
+.container_customsecond input[type="date"] {
+    width: 80px; /* Adjust input field width */
+}
+
+.additional-text_customsecond {
+    margin-top: 5px;
+}
+
+.second-table_customsecond input[type="text"],
+.second-table_customsecond input[type="tel"]{
+    width: 300px; /* Adjust input field width */
+}
+.second-table_customsecond td {
+    width: calc(100% / 3); /* Equal width for all columns */
+}
+
+.third-table_customsecond td {
+    width: calc(14.28%); /* Divide 100% by the number of columns (7) */
+    height: 20px; /* Set the height as needed */
+}
+.total-cell_customsecond {
+    height: 200px; /* Set the height of the total cell */
+}
+.second-table_customsecond{
+    margin-top: -10px;
+}
+.first-table_customsecond{
+    margin-top: 3px;
+
+}
+.third-table_customsecond{
+    margin-top: -3px;
+}
